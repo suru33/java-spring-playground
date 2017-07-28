@@ -14,6 +14,7 @@ public class AppTest {
 		camera.snap();
 
 		context.close();
+
 	}
 
 }

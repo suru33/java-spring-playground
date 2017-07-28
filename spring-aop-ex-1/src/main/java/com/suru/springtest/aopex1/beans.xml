@@ -13,6 +13,7 @@
 			id="cameraSnap" />
 		<aop:aspect ref="logger" id="loggerAspect">
 			<aop:before method="logMySnap" pointcut-ref="cameraSnap" />
+			<aop:after method="afterMySnap" pointcut-ref="cameraSnap" />
 		</aop:aspect>
 		
 	</aop:config>
