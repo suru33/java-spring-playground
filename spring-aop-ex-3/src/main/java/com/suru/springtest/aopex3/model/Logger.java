@@ -9,12 +9,23 @@ import org.springframework.stereotype.Component;
 @Component
 public class Logger {
 
-	@Pointcut("execution(void com.suru.springtest.aopex3.model.Camera.snap())")
-	public void camaraSnap() {
+	// used wild card chars in poincut expression
+	// any method in Camera class with any return type and any number of args
+	@Pointcut("execution(* com.suru.springtest.aopex3.model.Camera.*(..))")
+	public void cameraSnap() {
 	}
 
-	@Before("camaraSnap()")
+	@Pointcut("within(com.suru.springtest.aopex3.model.Car)")
+	public void car() {
+	}
+
+	@Before("cameraSnap()")
 	public void beforeSnap() {
 		System.out.println("** before snap **");
+	}
+
+	@Before("car()")
+	public void beforeCar() {
+		System.out.println("** before car **");
 	}
 }
