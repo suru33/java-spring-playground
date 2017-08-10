@@ -2,12 +2,12 @@ package com.suru.springtest.aopex2.model;
 
 public interface DummyInterface {
 
-	void snap();
+	public void snap();
 
-	String snapReturn();
+	public String snapReturn();
 
-	void throwSnap() throws Exception;
+	public void throwSnap() throws Exception;
 
-	void aroundSnap();
+	public void aroundSnap();
 
 }
