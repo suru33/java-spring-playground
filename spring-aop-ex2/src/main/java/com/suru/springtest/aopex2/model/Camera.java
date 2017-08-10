@@ -2,8 +2,12 @@ package com.suru.springtest.aopex2.model;
 
 import org.springframework.stereotype.Component;
 
-@Component
-public class Camera {
+@Component("cam")
+public class Camera implements DummyInterface {
+
+	public Camera() {
+		System.out.println("~~~ Camera constructor ~~~");
+	}
 
 	public void snap() {
 		System.out.println("** SNAP! **");
@@ -16,9 +20,9 @@ public class Camera {
 	public void throwSnap() throws Exception {
 		throw new Exception("** Exception throwed **");
 	}
-	
+
 	public void aroundSnap() {
 		System.out.println("** around snap **");
 	}
-	
+
 }

@@ -10,10 +10,13 @@ public class AppTest {
 		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext(
 				"/com/suru/springtest/aopex2/beans.xml");
 
-		Camera bean = context.getBean("camera", Camera.class);
+		Object bean2 = context.getBean("cam");
+		System.out.println(bean2.getClass());
+		
+		Camera bean = context.getBean("cam", Camera.class);
 		bean.snap();
 		System.out.println(bean.snapReturn());
-		// try {
+		// try {;
 		// bean.throwSnap();
 		// } catch (Exception e) {
 		// e.printStackTrace();

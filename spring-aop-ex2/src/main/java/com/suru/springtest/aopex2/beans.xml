@@ -11,6 +11,6 @@
 	<context:component-scan base-package="com.suru.springtest.aopex2.model">
 	</context:component-scan>
 
+	<aop:aspectj-autoproxy proxy-target-class="true" />
 
-	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
 </beans>
