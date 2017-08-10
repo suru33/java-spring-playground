@@ -12,15 +12,14 @@ public class AppTest {
 				"/com/suru/springtest/aopex3/beans.xml");
 
 		Camera bean = context.getBean("cam", Camera.class);
-		
-		Car car = context.getBean("car", Car.class);
-		
 		bean.snap();
 		bean.snap(1000);
 		bean.snapMode("night");
 
+		Car car = context.getBean("car", Car.class);
 		car.start();
-		
+		car.stop();
+
 		context.close();
 	}
 
