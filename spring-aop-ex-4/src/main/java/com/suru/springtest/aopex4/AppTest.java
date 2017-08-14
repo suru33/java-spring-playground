@@ -2,6 +2,7 @@ package com.suru.springtest.aopex4;
 
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.suru.springtest.aopex4.model.Camera;
 import com.suru.springtest.aopex4.model.Car;
 
 public class AppTest {
@@ -13,6 +14,10 @@ public class AppTest {
 		car.startCar();
 		car.stopCar();
 
+		
+		Camera camera = context.getBean("cam", Camera.class);
+		camera.testAnnotaionSnapper();
+		
 		context.close();
 	}
 }
