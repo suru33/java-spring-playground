@@ -11,6 +11,7 @@ public class AppTest {
 
 		Car car = context.getBean("car", Car.class);
 		car.startCar();
+		car.stopCar();
 
 		context.close();
 	}

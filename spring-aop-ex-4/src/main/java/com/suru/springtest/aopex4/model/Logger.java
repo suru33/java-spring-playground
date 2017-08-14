@@ -9,13 +9,22 @@ import org.springframework.stereotype.Component;
 @Aspect
 public class Logger {
 
-	@Pointcut("within(com.suru.springtest.aopex4.model.Car)")
+	@Pointcut("within(com.suru.springtest.aopex4.model.*)")
 	public void withinCar() {
+	}
 
+	@Pointcut("target(com.suru.springtest.aopex4.model.Car)")
+	public void targetCar() {
 	}
 
 	@Before("withinCar()")
 	public void withinBeforeCar() {
 		System.out.println("** withinBeforeCar **");
 	}
+
+	@Before("targetCar()")
+	public void targetCarAdvice() {
+		System.out.println("** target **");
+	}
+
 }
