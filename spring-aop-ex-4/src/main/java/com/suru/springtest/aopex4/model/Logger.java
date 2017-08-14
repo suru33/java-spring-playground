@@ -21,6 +21,13 @@ public class Logger {
 	public void testAnnotation() {
 	}
 
+	// spring bean "woo"
+	// also accept wild cards in bean name
+	@Pointcut("bean(woo)")  
+	public void beanTest() {
+
+	}
+
 	// @Before("withinCar()")
 	// public void withinBeforeCar() {
 	// System.out.println("** withinBeforeCar **");
@@ -34,6 +41,11 @@ public class Logger {
 	@Before("testAnnotation()")
 	public void testAnnotaionBefore() {
 		System.out.println("** test annotaion log **");
+	}
+
+	@Before("beanTest()")
+	public void testBeanBefore() {
+		System.out.println("** test bean before **");
 	}
 
 }
