@@ -1,10 +1,18 @@
 package com.suru.springtest.offers.dao;
 
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
 public class Offer {
 
 	private Integer id;
+	@Size(min = 5, max = 100, message = "Name must be between 5 and 100 characters.")
 	private String userName;
+	@NotNull
+	@Pattern(regexp = ".*\\\\@.*\\\\..*", message = "Invalid email")
 	private String email;
+	@Size(min = 5, max = 100, message = "Text must be between 20 and 255 characters.")
 	private String offerText;
 
 	public Offer() {
