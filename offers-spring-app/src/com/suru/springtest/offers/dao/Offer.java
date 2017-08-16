@@ -1,11 +1,15 @@
 package com.suru.springtest.offers.dao;
 
+import java.io.Serializable;
+
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
-public class Offer {
+public class Offer implements Serializable {
 
+	private static final long serialVersionUID = 4993767904897058006L;
+	
 	private Integer id;
 	@Size(min = 5, max = 100, message = "Name must be between 5 and 100 characters.")
 	private String userName;
