@@ -25,6 +25,7 @@
 		<param-value>
 			classpath:com/suru/springtest/offers/config/dao-context.xml
 			classpath:com/suru/springtest/offers/config/service-context.xml
+			classpath:com/suru/springtest/offers/config/security-context.xml
 		</param-value>
 	</context-param>
 	<description>Spring Database Config</description>
