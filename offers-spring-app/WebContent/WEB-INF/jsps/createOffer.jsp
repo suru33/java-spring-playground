@@ -7,7 +7,7 @@
 <title>New Offer</title>
 </head>
 <body>
-	<form action="${pageContext.request.contextPath}/offers" method="post">
+	<form action="${pageContext.request.contextPath}/offers/doCreate" method="get">
 		Name: <input type="text" name="name"> <br />
 		Email: <input type="text" name="email"> <br />
 		Offer: <input type="text" name="offer"> <br />

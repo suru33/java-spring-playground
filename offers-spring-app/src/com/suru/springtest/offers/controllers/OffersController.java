@@ -30,7 +30,7 @@ public class OffersController {
 		return "offers";
 	}
 
-	@RequestMapping(method = RequestMethod.POST)
+	@RequestMapping(path = "/doCreate", method = RequestMethod.GET)
 	public String saveOffers(HttpServletRequest request) {
 
 		Offer offer = new Offer(null, request.getParameter("name"), request.getParameter("email"),
@@ -38,7 +38,7 @@ public class OffersController {
 
 		offersService.createOffer(offer);
 
-		return "redirect:/offers";
+		return "doCreate";
 	}
 
 	@RequestMapping(path = "/edit/{offerId}", method = RequestMethod.GET)
@@ -61,4 +61,5 @@ public class OffersController {
 		offersService.deleteOffer(id);
 		return "redirect:/offers";
 	}
+
 }
