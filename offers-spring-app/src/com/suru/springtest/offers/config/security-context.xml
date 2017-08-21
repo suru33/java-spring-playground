@@ -12,7 +12,7 @@
 			</security:user-service>
 		</security:authentication-provider>
 	</security:authentication-manager>
-	
+
 	<security:http use-expressions="true">
 		<security:intercept-url pattern="/static/**" access="permitAll" />
 		<security:intercept-url pattern="/" access="permitAll" />
@@ -23,7 +23,7 @@
 		<security:intercept-url pattern="/createOffer" access="isAuthenticated()" />
 
 		<security:intercept-url pattern="/**" access="isAuthenticated()" />
-		<security:form-login login-page="/login" />
+		<security:form-login login-page="/login" authentication-failure-url="/login?error=true" />
 	</security:http>
-	
+
 </beans>
