@@ -6,15 +6,22 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import com.suru.springtest.offers.constraints.ValidEmail;
+
 public class Offer implements Serializable {
 
 	private static final long serialVersionUID = 4993767904897058006L;
-	
+
 	private Integer id;
 	@Size(min = 5, max = 100, message = "Name must be between 5 and 100 characters.")
 	private String userName;
-	@NotNull
-	@Pattern(regexp = ".*\\@.*\\..*", message = "Invalid email")
+
+	// regular way to check email address through validation API
+	// @NotNull
+	// @Pattern(regexp = ".*\\@.*\\..*", message = "Invalid email")
+
+	// created new annotaion to validate email
+	@ValidEmail(min = 6)
 	private String email;
 	@Size(min = 5, max = 100, message = "Text must be between 5 and 255 characters.")
 	private String offerText;
