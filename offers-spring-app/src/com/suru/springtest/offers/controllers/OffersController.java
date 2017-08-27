@@ -1,10 +1,16 @@
 package com.suru.springtest.offers.controllers;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -30,15 +36,14 @@ public class OffersController {
 		return "offers";
 	}
 
-	@RequestMapping(path = "/doCreate", method = RequestMethod.GET)
-	public String saveOffers(HttpServletRequest request) {
-
-		Offer offer = new Offer(null, request.getParameter("name"), request.getParameter("email"),
-				request.getParameter("offer"));
-
-		offersService.createOffer(offer);
-
-		return "doCreate";
+	@RequestMapping(path = "/doCreate", method = RequestMethod.POST)
+	public String saveOffers(Model model, @Valid Offer offer, BindingResult bindingResult) {
+		if (bindingResult.hasErrors()) {
+			return "createOffer";
+		} else {
+			offersService.createOffer(offer);
+			return "doCreate";
+		}
 	}
 
 	@RequestMapping(path = "/edit/{offerId}", method = RequestMethod.GET)

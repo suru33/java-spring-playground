@@ -14,9 +14,9 @@ public class Offer implements Serializable {
 	@Size(min = 5, max = 100, message = "Name must be between 5 and 100 characters.")
 	private String userName;
 	@NotNull
-	@Pattern(regexp = ".*\\\\@.*\\\\..*", message = "Invalid email")
+	@Pattern(regexp = ".*\\@.*\\..*", message = "Invalid email")
 	private String email;
-	@Size(min = 5, max = 100, message = "Text must be between 20 and 255 characters.")
+	@Size(min = 5, max = 100, message = "Text must be between 5 and 255 characters.")
 	private String offerText;
 
 	public Offer() {
